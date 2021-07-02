@@ -37,7 +37,7 @@ export default function Home() {
         </section>
         <figure className="header-img-wrapper">
           <StaticImage
-            src="../assets/images/header_portrait.jpg"
+            src="../assets/images/header_portrait.JPG"
             alt="portrait image"
             width={550}
             layout="constrained"
@@ -47,8 +47,15 @@ export default function Home() {
           />
         </figure>
       </header>
-      <main>
+      <main className="main-content">
         <h1 className="main-header">Projects</h1>
+        <article className="project-wrapper">
+          <h2 className="project-title">The SurfSkate Academy</h2>
+          <section className="overview-wrapper"></section>
+          <section className="img-preview-wrapper"></section>
+          <section className="main-features-wrapper"></section>
+          <section className="icon-wrapper"></section>
+        </article>
       </main>
     </Layout>
   )

@@ -92,6 +92,25 @@ a {
   font-size: 1rem;
 }
 
+/* main */
+
+.main-content {
+  width: 88vw;
+  margin: 7rem auto;
+  max-width: 1300px;
+}
+
+.main-header {
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+  max-width: 450px;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 0 auto 6rem auto;
+  padding: 0.5rem 0;
+}
+
 @media screen and (min-width: 930px) {
   .header-wrapper {
     display: flex;
