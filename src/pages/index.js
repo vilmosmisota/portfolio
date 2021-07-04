@@ -1,6 +1,7 @@
 import React from "react"
 import "../assets/styles/main.css"
 import Layout from "../components/layout"
+import Projects from "../components/Projects"
 import { StaticImage } from "gatsby-plugin-image"
 import { FaGithubSquare } from "react-icons/fa"
 import { FaLinkedin } from "react-icons/fa"
@@ -49,13 +50,7 @@ export default function Home() {
       </header>
       <main className="main-content">
         <h1 className="main-header">Projects</h1>
-        <article className="project-wrapper">
-          <h2 className="project-title">The SurfSkate Academy</h2>
-          <section className="overview-wrapper"></section>
-          <section className="img-preview-wrapper"></section>
-          <section className="main-features-wrapper"></section>
-          <section className="icon-wrapper"></section>
-        </article>
+        <Projects />
       </main>
     </Layout>
   )

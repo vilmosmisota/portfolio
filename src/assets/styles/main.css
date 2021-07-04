@@ -75,6 +75,8 @@ a {
   width: 100%;
   text-align: center;
   max-width: 450px;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .header-img {
