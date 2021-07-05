@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { GatsbyImage } from "gatsby-plugin-image"
@@ -36,6 +36,17 @@ const Projects = () => {
   const data = useStaticQuery(query)
   const projects = data.allContentfulProjects.nodes
 
+  const [current, setCurrent] = useState(0)
+  const length = 5
+
+  const nextSlide = () => {
+    setCurrent(current === length - 1 ? 0 : current + 1)
+  }
+
+  const prevSlide = () => {
+    setCurrent(current === 0 ? length - 1 : current - 1)
+  }
+
   console.log(projects)
 
   return (
@@ -46,11 +57,11 @@ const Projects = () => {
             <h2 className="project-title">{el.title}</h2>
             <p className="subheading">{el.sumupHeading}</p>
             <section className="overview-wrapper">
-              <h3 className="overview-text">{el.overview.overview}</h3>
+              <h4 className="overview-text">{el.overview.overview}</h4>
             </section>
             <figure className="project-img-wrapper">
               <GatsbyImage
-                image={el.images[0].gatsbyImageData}
+                image={el.images[current].gatsbyImageData}
                 alt={el.title}
                 quality="100"
                 className="project-img"
@@ -58,10 +69,10 @@ const Projects = () => {
             </figure>
             <section className="img-btn-wrapper">
               <button className="img-btn">
-                <HiOutlineArrowNarrowLeft />
+                <HiOutlineArrowNarrowLeft onClick={prevSlide} />
               </button>
               <button className="img-btn">
-                <HiOutlineArrowNarrowRight />
+                <HiOutlineArrowNarrowRight onClick={nextSlide} />
               </button>
             </section>
             <section className="mainFeatures-wrapper">
