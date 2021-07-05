@@ -63,7 +63,6 @@ const Projects = () => {
               <GatsbyImage
                 image={el.images[current].gatsbyImageData}
                 alt={el.title}
-                quality="100"
                 className="project-img"
               />
             </figure>

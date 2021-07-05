@@ -107,23 +107,11 @@ nav {
   -webkit-text-stroke: 1px var(--light);
 }
 
-.hamburger-btn {
-  font-size: 2.18rem;
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--light);
-}
-
 @media screen and (min-width: 930px) {
   .close-btn,
   .smallscreen-icons-wrapper,
   .smallscreen-icons,
-  .hamburger-btn,
+  .nav-icon,
   .hide-li {
     display: none;
   }
