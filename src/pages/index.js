@@ -6,6 +6,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import { FaGithubSquare } from "react-icons/fa"
 import { FaLinkedin } from "react-icons/fa"
 import { FaEnvelopeSquare } from "react-icons/fa"
+import Introduction from "../components/Introduction"
 
 export default function Home() {
   return (
@@ -25,16 +26,7 @@ export default function Home() {
           </ul>
         </aside>
         <section className="intro-wrapper">
-          <div className="intro">
-            <h1>Hello,</h1>
-            <h1>
-              I am Vilmos, <br /> a web developer with a passion to create and
-              the will to progress
-            </h1>
-          </div>
-          <div>
-            <button className="black-btn">More</button>
-          </div>
+          <Introduction />
         </section>
         <figure className="header-img-wrapper">
           <StaticImage
