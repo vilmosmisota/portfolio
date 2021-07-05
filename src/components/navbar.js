@@ -1,14 +1,33 @@
-import React from "react"
+import React, { useState } from "react"
 import "../assets/styles/navbar.css"
 
 import { FaGithubSquare } from "react-icons/fa"
 import { FaLinkedin } from "react-icons/fa"
 import { FaEnvelopeSquare } from "react-icons/fa"
-import { AiOutlineClose } from "react-icons/ai"
-import Hamburger from "./Hamburger"
-import { StaticImage } from "gatsby-plugin-image"
 
 export default function Navbar() {
+  const [toggle, setToggle] = useState(false)
+
+  const handleClick = () => {
+    setToggle(!toggle)
+  }
+
+  const toggleNavlists = () => {
+    if (!toggle) {
+      return "nav-lists-wrapper"
+    } else {
+      return "nav-lists-wrapper active"
+    }
+  }
+
+  const toggleHamburger = () => {
+    if (!toggle) {
+      return "nav-icon"
+    } else {
+      return "nav-icon open"
+    }
+  }
+
   return (
     <nav>
       <section className="logo-wrapper">
@@ -25,13 +44,8 @@ export default function Navbar() {
           />
         </svg>
       </section>
-      <section className="nav-lists-wrapper">
+      <section className={toggleNavlists()}>
         <ul className="nav-items">
-          <li className="hide-li">
-            <button className="close-btn">
-              <AiOutlineClose />
-            </button>
-          </li>
           <li>Projects</li>
           <li>About</li>
           <li>CV</li>
@@ -50,9 +64,17 @@ export default function Navbar() {
           </ul>
         </div>
       </section>
-      <>
-        <Hamburger />
-      </>
+      <div
+        role="button"
+        tabIndex={0}
+        className={toggleHamburger()}
+        onClick={handleClick}
+        onKeyDown={handleClick}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </nav>
   )
 }
