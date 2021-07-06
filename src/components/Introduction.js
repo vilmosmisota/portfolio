@@ -13,8 +13,8 @@ function Introduction() {
         <>
           <h1>Hello,</h1>
           <h1>
-            I am Vilmos, <br /> a web developer with a passion to create and the
-            will to progress
+            I am Vilmos, <br /> a web developer with a passion to create and
+            progress
           </h1>
         </>
       )

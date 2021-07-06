@@ -19,7 +19,7 @@ const query = graphql`
         images {
           gatsbyImageData(
             formats: AUTO
-            height: 500
+            height: 450
             quality: 100
             layout: CONSTRAINED
           )
@@ -27,6 +27,11 @@ const query = graphql`
         overview {
           overview
         }
+        github
+        about {
+          about
+        }
+        website
       }
     }
   }
@@ -79,10 +84,13 @@ const Projects = () => {
                 {renderRichText(el.mainFeatures)}
               </pre>
             </section>
+            <p>{el.github}</p>
             <section className="project-icon-wrapper">
               <button className="long-btn">Read more</button>
               <button className="short-btn">Live</button>
-              <button className="short-btn">Code</button>
+              <a href={el.github} target="_blank" rel="noopener noreferrer">
+                <button className="short-btn">Code</button>
+              </a>
             </section>
           </article>
         )
