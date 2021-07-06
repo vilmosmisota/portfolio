@@ -32,6 +32,9 @@ const query = graphql`
           about
         }
         website
+        test {
+          website
+        }
       }
     }
   }
@@ -84,11 +87,20 @@ const Projects = () => {
                 {renderRichText(el.mainFeatures)}
               </pre>
             </section>
-            <p>{el.github}</p>
             <section className="project-icon-wrapper">
               <button className="long-btn">Read more</button>
-              <button className="short-btn">Live</button>
-              <a href={el.github} target="_blank" rel="noopener noreferrer">
+              <a
+                href={`"${el.github}"`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button className="short-btn">Live</button>
+              </a>
+              <a
+                href={`"${el.test.website}"`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <button className="short-btn">Code</button>
               </a>
             </section>
