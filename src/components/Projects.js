@@ -41,19 +41,18 @@ const query = graphql`
 const Projects = () => {
   const data = useStaticQuery(query)
   const projects = data.allContentfulProjects.nodes
-  // const windowSize = useWindowSize()
 
-  // const checkWindowSize = () => {
-  //   if (windowSize.width < 930) {
-  //     return 2
-  //   } else {
-  //     return 0
-  //   }
-  // }
+  // Individual Read more/less button in the map function
+  const initialStateForIds = projects.map(el => {
+    const idFalse = { [el.id]: false }
+    return idFalse
+  })
+
+  const [readMore, SetReadMore] = useState(initialStateForIds)
+
+  // Image Slider
 
   const [current, setCurrent] = useState(0)
-  const [readMore, setReadMore] = useState(false)
-
   const length = 5
 
   const nextSlide = () => {
@@ -64,32 +63,12 @@ const Projects = () => {
     setCurrent(current === 0 ? length - 1 : current - 1)
   }
 
-  const handleClick = () => {
-    setReadMore(!readMore)
-  }
-
-  const toggleReadMore = () => {
-    if (!readMore) {
-      return "read-more-wrapper"
-    } else {
-      return "read-more-wrapper read-more-active"
-    }
-  }
-
-  const toggleReadMoreBtn = () => {
-    if (!readMore) {
-      return "Read More"
-    } else {
-      return "Read Less"
-    }
-  }
-
-  // console.log(current)
-  // console.log(checkWindowSize())
-
   return (
     <>
       {projects.map(el => {
+        const onClick = () => {
+          SetReadMore(prev => ({ ...prev, [el.id]: !prev[el.id] }))
+        }
         return (
           <article className="project-wrapper" key={el.id}>
             <h2 className="project-title">{el.title}</h2>
@@ -113,7 +92,13 @@ const Projects = () => {
                 <HiOutlineArrowNarrowRight onClick={nextSlide} />
               </button>
             </section>
-            <article className={toggleReadMore()}>
+            <article
+              className={`${
+                readMore[el.id]
+                  ? "read-more-wrapper read-more-active"
+                  : "read-more-wrapper"
+              }`}
+            >
               <section className="about-wrapper">
                 <h3>About</h3>
                 <p className="about">{el.about.about}</p>
@@ -126,8 +111,8 @@ const Projects = () => {
               </section>
             </article>
             <section className="project-icon-wrapper">
-              <button onClick={handleClick} className="long-btn">
-                {toggleReadMoreBtn()}
+              <button onClick={onClick} className="long-btn">
+                {`${readMore[el.id] ? "Read less" : "Read more"}`}
               </button>
               <a
                 href={el.website}
