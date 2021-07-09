@@ -53,7 +53,7 @@ const Projects = () => {
   // Image Slider
 
   const [current, setCurrent] = useState(0)
-  const length = 5
+  const length = 4
 
   const nextSlide = () => {
     setCurrent(current === length - 1 ? 0 : current + 1)

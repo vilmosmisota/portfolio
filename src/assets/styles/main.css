@@ -52,7 +52,7 @@ a {
   margin: 0 auto 0.8rem auto;
   font-family: var(--secondary-font);
   color: var(--light);
-  height: 350px;
+  min-height: 350px;
   padding: 0.8rem 0;
   line-height: 2.1rem;
 

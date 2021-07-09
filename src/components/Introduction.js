@@ -1,11 +1,12 @@
-import React, { useState } from "react"
+import React, { useState, useRef, useEffect } from "react"
 
 function Introduction() {
   const [phase, setPhase] = useState("firstPhase")
+  let countCodingPhase = useRef(0)
 
-  const clickToSecondPhase = () => {
-    setPhase("secondPhase")
-  }
+  useEffect(() => {
+    countCodingPhase.current = countCodingPhase.current + 1
+  })
 
   const ShowIntroduction = () => {
     if (phase === "firstPhase") {
@@ -22,8 +23,39 @@ function Introduction() {
       return (
         <>
           <p>
-            Awesome. Would you like to know more about my coding background or
-            interested in what I do when I am not in front of a laptop?
+            I am glad you would like to learn more about me. <br /> Is it
+            something coding related you are interested in or something that I
+            do when I am not in front of a laptop?
+          </p>
+        </>
+      )
+    } else if (phase === "coding") {
+      return (
+        <>
+          <p>
+            I am a self-thought developer striving to gain more and more
+            knowledge and experience. <br /> On the front end, I am most
+            familiar with Javascript and its framework React. On the back end:
+            Node and Postgresql.
+          </p>
+        </>
+      )
+    } else if (phase === "non-coding") {
+      return (
+        <>
+          <p>
+            I spend most of my time in the outdoors surfing waves, climbing
+            rocks and hiking. I also have a passionate pursuit of an art form
+            called photography.
+          </p>
+        </>
+      )
+    } else if (phase === "end-phase") {
+      return (
+        <>
+          <p>
+            I am thrilled you still want to know more. <br /> If you haven't
+            already, scroll down to see what I have built so far.
           </p>
         </>
       )
@@ -31,10 +63,18 @@ function Introduction() {
   }
 
   const ShowBtns = () => {
-    if (phase === "firstPhase") {
+    if (countCodingPhase.current === "[object HTMLDivElement]111") {
       return (
         <>
-          <button onClick={clickToSecondPhase} className="black-btn">
+          <button onClick={() => setPhase("end-phase")} className="black-btn">
+            More???
+          </button>
+        </>
+      )
+    } else if (phase === "firstPhase") {
+      return (
+        <>
+          <button onClick={() => setPhase("secondPhase")} className="black-btn">
             More
           </button>
         </>
@@ -42,16 +82,38 @@ function Introduction() {
     } else if (phase === "secondPhase") {
       return (
         <>
-          <button className="black-btn">Code</button>
-          <button className="black-btn">No Code</button>
+          <button onClick={() => setPhase("coding")} className="black-btn">
+            Coding
+          </button>
+          <button onClick={() => setPhase("non-coding")} className="black-btn">
+            Non-Coding
+          </button>
         </>
       )
+    } else if (phase === "coding") {
+      return (
+        <>
+          <button onClick={() => setPhase("non-coding")} className="black-btn">
+            Non-Coding
+          </button>
+        </>
+      )
+    } else if (phase === "non-coding") {
+      return (
+        <>
+          <button onClick={() => setPhase("coding")} className="black-btn">
+            Coding
+          </button>
+        </>
+      )
+    } else {
+      return null
     }
   }
 
   return (
     <>
-      <div className="intro">
+      <div ref={countCodingPhase} className="intro">
         <ShowIntroduction />
       </div>
       <div className="intro-btn-wrapper">
