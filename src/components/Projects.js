@@ -3,8 +3,8 @@ import { graphql, useStaticQuery } from "gatsby"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { GatsbyImage } from "gatsby-plugin-image"
 import "../assets/styles/projects.css"
-import { HiOutlineArrowNarrowLeft } from "react-icons/hi"
-import { HiOutlineArrowNarrowRight } from "react-icons/hi"
+// import { HiOutlineArrowNarrowLeft } from "react-icons/hi"
+// import { HiOutlineArrowNarrowRight } from "react-icons/hi"
 // import useWindowSize from "../helper/windowSize"
 
 const query = graphql`
@@ -50,25 +50,13 @@ const Projects = () => {
 
   const [readMore, SetReadMore] = useState(initialStateForIds)
 
-  // Image Slider
-
-  const [current, setCurrent] = useState(0)
-  const length = 4
-
-  const nextSlide = () => {
-    setCurrent(current === length - 1 ? 0 : current + 1)
-  }
-
-  const prevSlide = () => {
-    setCurrent(current === 0 ? length - 1 : current - 1)
-  }
-
   return (
     <>
       {projects.map(el => {
         const onClick = () => {
           SetReadMore(prev => ({ ...prev, [el.id]: !prev[el.id] }))
         }
+
         return (
           <article className="project-wrapper" key={el.id}>
             <h2 className="project-title">{el.title}</h2>
@@ -78,20 +66,24 @@ const Projects = () => {
             </section>
             <figure className="project-img-wrapper">
               <GatsbyImage
-                image={el.images[current].gatsbyImageData}
+                image={el.images[0].gatsbyImageData}
                 alt={el.title}
                 className="project-img"
-                onClick={nextSlide}
+              />
+              <GatsbyImage
+                image={el.images[2].gatsbyImageData}
+                alt={el.title}
+                className="project-img"
               />
             </figure>
-            <section className="img-btn-wrapper">
+            {/* <section className="img-btn-wrapper">
               <button className="img-btn">
-                <HiOutlineArrowNarrowLeft onClick={prevSlide} />
+                <HiOutlineArrowNarrowLeft />
               </button>
               <button className="img-btn">
-                <HiOutlineArrowNarrowRight onClick={nextSlide} />
+                <HiOutlineArrowNarrowRight />
               </button>
-            </section>
+            </section> */}
             <article
               className={`${
                 readMore[el.id]
