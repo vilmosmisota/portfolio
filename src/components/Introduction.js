@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect } from "react"
+import "../assets/styles/introduction.css"
+import { BsArrowDown } from "react-icons/bs"
 
 function Introduction() {
   const [phase, setPhase] = useState("firstPhase")
@@ -12,8 +14,8 @@ function Introduction() {
     if (phase === "firstPhase") {
       return (
         <>
-          <h1>Hello,</h1>
-          <h1>
+          <h1 className="base-1">Hello,</h1>
+          <h1 className="base-2">
             I am Vilmos, <br /> a web developer with a passion to create and
             progress
           </h1>
@@ -23,9 +25,14 @@ function Introduction() {
       return (
         <>
           <p>
-            I am glad you would like to learn more about me. <br /> Is it
-            something coding related you are interested in or something that I
-            do when I am not in front of a laptop?
+            <span className="intro-1">
+              I am glad you would like to learn more about me.
+            </span>{" "}
+            <br />{" "}
+            <span className="intro-2">
+              Is it something coding related you are interested in or something
+              that I do when I am not in front of a laptop?
+            </span>
           </p>
         </>
       )
@@ -33,10 +40,15 @@ function Introduction() {
       return (
         <>
           <p>
-            I am a self-thought developer striving to gain more and more
-            knowledge and experience. <br /> On the front end, I am most
-            familiar with Javascript and its framework React. On the back end:
-            Node and Postgresql.
+            <span className="intro-1">
+              I am a self-thought developer striving to gain more and more
+              knowledge and experience.
+            </span>{" "}
+            <br />{" "}
+            <span className="intro-2">
+              On the front end, I am most familiar with Javascript and its
+              framework React. On the back end: Node and Postgresql.
+            </span>
           </p>
         </>
       )
@@ -44,9 +56,15 @@ function Introduction() {
       return (
         <>
           <p>
-            I spend most of my time in the outdoors surfing waves, climbing
-            rocks and hiking. I also have a passionate pursuit of an art form
-            called photography.
+            <span className="intro-1">
+              I spend most of my time in the outdoors surfing waves, climbing
+              rocks and hiking.
+            </span>
+            <br />{" "}
+            <span className="intro-2">
+              I also have a passionate pursuit of an art form called
+              photography.
+            </span>
           </p>
         </>
       )
@@ -54,9 +72,16 @@ function Introduction() {
       return (
         <>
           <p>
-            I am thrilled you still want to know more. <br /> If you haven't
-            already, scroll down to see what I have built so far.
+            <span className="intro-1">
+              I am thrilled you still want to know more.
+            </span>
+            <br />
+            <span className="intro-2">
+              If you haven't already, scroll down to see what I have built so
+              far.
+            </span>
           </p>
+          <BsArrowDown className="arrow-down intro-3" />
         </>
       )
     }
@@ -66,7 +91,10 @@ function Introduction() {
     if (countCodingPhase.current === "[object HTMLDivElement]111") {
       return (
         <>
-          <button onClick={() => setPhase("end-phase")} className="black-btn">
+          <button
+            onClick={() => setPhase("end-phase")}
+            className="black-btn intro-3"
+          >
             More???
           </button>
         </>
@@ -74,7 +102,10 @@ function Introduction() {
     } else if (phase === "firstPhase") {
       return (
         <>
-          <button onClick={() => setPhase("secondPhase")} className="black-btn">
+          <button
+            onClick={() => setPhase("secondPhase")}
+            className="black-btn base-3"
+          >
             More
           </button>
         </>
@@ -82,10 +113,16 @@ function Introduction() {
     } else if (phase === "secondPhase") {
       return (
         <>
-          <button onClick={() => setPhase("coding")} className="black-btn">
+          <button
+            onClick={() => setPhase("coding")}
+            className="black-btn intro-3"
+          >
             Coding
           </button>
-          <button onClick={() => setPhase("non-coding")} className="black-btn">
+          <button
+            onClick={() => setPhase("non-coding")}
+            className="black-btn intro-3"
+          >
             Non-Coding
           </button>
         </>
@@ -93,7 +130,10 @@ function Introduction() {
     } else if (phase === "coding") {
       return (
         <>
-          <button onClick={() => setPhase("non-coding")} className="black-btn">
+          <button
+            onClick={() => setPhase("non-coding")}
+            className="black-btn intro-3"
+          >
             Non-Coding
           </button>
         </>
@@ -101,7 +141,10 @@ function Introduction() {
     } else if (phase === "non-coding") {
       return (
         <>
-          <button onClick={() => setPhase("coding")} className="black-btn">
+          <button
+            onClick={() => setPhase("coding")}
+            className="black-btn intro-3"
+          >
             Coding
           </button>
         </>

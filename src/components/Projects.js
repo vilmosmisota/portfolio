@@ -3,9 +3,6 @@ import { graphql, useStaticQuery } from "gatsby"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { GatsbyImage } from "gatsby-plugin-image"
 import "../assets/styles/projects.css"
-// import { HiOutlineArrowNarrowLeft } from "react-icons/hi"
-// import { HiOutlineArrowNarrowRight } from "react-icons/hi"
-// import useWindowSize from "../helper/windowSize"
 
 const query = graphql`
   {

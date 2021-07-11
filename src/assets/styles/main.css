@@ -11,6 +11,21 @@
 
   --linkHoverTransition: 0.1s ease-in-out;
   --btnHoverTransition: 0.2s ease-in-out;
+
+  --loading-h1-loading-time: 250ms;
+  --loading-h1-wait-time: 500ms;
+
+  --loading-wrapper-loading-time: 500ms;
+  --loading-wrapper-wait-time: 2500ms;
+
+  --base-1-loading-time: 500ms;
+  --base-1-waiting-time: 2500ms;
+
+  --base-2-loading-time: 500ms;
+  --base-2-wait-time: 3000ms;
+
+  --base-3-loading-time: 500ms;
+  --base-3-wait-time: 3500ms;
 }
 
 *,
@@ -62,6 +77,7 @@ a {
   align-items: center;
   justify-content: space-around;
   /* text-transform: uppercase; */
+  position: relative;
 }
 
 .intro-wrapper h1 {
@@ -203,5 +219,16 @@ a {
 
   .header-img-wrapper {
     margin: 0;
+  }
+}
+
+@keyframes intro-h1 {
+  0% {
+    transform: translateY(-20%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
   }
 }
