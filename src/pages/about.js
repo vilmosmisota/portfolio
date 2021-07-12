@@ -1,11 +1,14 @@
 import React from "react"
 import "../assets/styles/about.css"
+import ContactForm from "../components/ContactForm"
 import Layout from "../components/layout"
+import Seo from "../components/Seo"
 
 function about() {
   return (
     <>
       <Layout>
+        <Seo title="About" />
         <main className="about-container">
           <div className="about-header">
             <h1 className="about-name">Vilmos Misota</h1>
@@ -44,12 +47,9 @@ function about() {
               Javascript frameworks would be a dream but honestly, I enjoy
               learning anything new.
             </p>
-            <p>
-              If you'd like to start a conversation or find out more please get
-              in touch below and I get back to you as soon as possible
-            </p>
           </div>
         </main>
+        <ContactForm />
       </Layout>
     </>
   )

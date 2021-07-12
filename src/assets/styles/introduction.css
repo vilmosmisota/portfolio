@@ -1,5 +1,5 @@
 .base-1 {
-  transform: translateY(0%);
+  transform: translateY(20%);
   opacity: 0;
   animation: base-intro var(--base-1-loading-time) ease-in
     var(--base-2-wait-time);
@@ -7,7 +7,7 @@
 }
 
 .base-2 {
-  transform: translateY(0%);
+  transform: translateY(20%);
   opacity: 0;
   animation: base-intro var(--base-2-loading-time) ease-in
     var(--base-2-wait-time);
@@ -15,7 +15,7 @@
 }
 
 .base-3 {
-  transform: translateY(0%);
+  transform: translateY(20%);
   opacity: 0;
   animation: base-intro var(--base-3-loading-time) ease-in
     var(--base-3-wait-time);
@@ -23,21 +23,21 @@
 }
 
 .intro-1 {
-  transform: translateY(0%);
+  transform: translateY(20%);
   opacity: 0;
   animation: base-intro 500ms ease-in 0s;
   animation-fill-mode: forwards;
 }
 
 .intro-2 {
-  transform: translateY(0%);
+  transform: translateY(20%);
   opacity: 0;
   animation: base-intro 500ms ease-in 500ms;
   animation-fill-mode: forwards;
 }
 
 .intro-3 {
-  transform: translateY(0%);
+  transform: translateY(20%);
   opacity: 0;
   animation: base-intro 500ms ease-in 1000ms;
   animation-fill-mode: forwards;

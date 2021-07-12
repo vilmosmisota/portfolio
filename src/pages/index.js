@@ -8,12 +8,15 @@ import { FaLinkedin } from "react-icons/fa"
 import { FaEnvelopeSquare } from "react-icons/fa"
 import Introduction from "../components/Introduction"
 import LoadingScreen from "../components/LoadingScreen"
+import { Link } from "gatsby"
+import Seo from "../components/Seo"
 
 export default function Home() {
   return (
     <>
       <LoadingScreen />
       <Layout>
+        <Seo title="Home" />
         <header className="header-wrapper">
           <aside className="largescreen-icons-wrapper">
             <ul className="largescreen-icons">
@@ -27,10 +30,18 @@ export default function Home() {
                 </a>
               </li>
               <li>
-                <FaLinkedin />
+                <a
+                  href="https://www.linkedin.com/in/vilmos-misota-586204210/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaLinkedin />
+                </a>
               </li>
               <li>
-                <FaEnvelopeSquare />
+                <Link to="/contact">
+                  <FaEnvelopeSquare />
+                </Link>
               </li>
             </ul>
           </aside>
@@ -50,9 +61,7 @@ export default function Home() {
           </figure>
         </header>
         <main className="main-content">
-          <h1 className="main-header" id="projects">
-            Projects
-          </h1>
+          <h1 className="main-header about-name">Projects</h1>
           <Projects />
         </main>
       </Layout>

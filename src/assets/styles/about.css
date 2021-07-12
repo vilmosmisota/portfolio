@@ -1,12 +1,15 @@
 .about-container {
   width: 88vw;
-  height: fit-content;
   max-width: 1300px;
   margin: 3rem auto;
 }
 
 .about-header {
   text-align: center;
+  transform: translateY(20%);
+  opacity: 0;
+  animation: base-intro 500ms ease-in 0s;
+  animation-fill-mode: forwards;
 }
 
 .about-name {
@@ -25,4 +28,19 @@
   margin: 3rem auto;
   max-width: 750px;
   line-height: 1.7rem;
+  transform: translateY(5%);
+  opacity: 0;
+  animation: projects 500ms ease-in 0s;
+  animation-delay: 500ms;
+  animation-fill-mode: forwards;
+}
+
+@media screen and (min-width: 930px) {
+  .about-header {
+    font-size: 2rem;
+  }
+
+  .about-main p {
+    font-size: 1.2rem;
+  }
 }

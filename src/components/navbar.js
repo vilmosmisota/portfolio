@@ -13,8 +13,12 @@ export default function Navbar() {
     setToggle(!toggle)
   }
 
+  const setToggleFalse = () => {
+    setToggle(false)
+  }
+
   const toggleNavlists = () => {
-    if (!toggle) {
+    if (toggle === false) {
       return "nav-lists-wrapper"
     } else {
       return "nav-lists-wrapper active"
@@ -22,17 +26,22 @@ export default function Navbar() {
   }
 
   const toggleHamburger = () => {
-    if (!toggle) {
+    if (toggle === false) {
       return "nav-icon"
     } else {
       return "nav-icon open"
     }
   }
 
+  const active = {
+    color: "#cf8d88",
+    fontWeight: "bold",
+  }
+
   return (
     <nav>
       <section className="logo-wrapper">
-        <Link to="/">
+        <Link onClick={setToggleFalse} to="/">
           <svg
             width="77"
             height="42"
@@ -49,10 +58,10 @@ export default function Navbar() {
       </section>
       <section className={toggleNavlists()}>
         <ul className="nav-items">
-          <Link to="/projects">
+          <Link to="/projects" activeStyle={active} onClick={setToggleFalse}>
             <li>Projects</li>
           </Link>
-          <Link to="/about">
+          <Link to="/about" activeStyle={active} onClick={setToggleFalse}>
             <li>About</li>
           </Link>
           <li>CV</li>
@@ -60,13 +69,27 @@ export default function Navbar() {
         <div className="smallscreen-icons-wrapper">
           <ul className="smallscreen-icons">
             <li>
-              <FaGithubSquare />
+              <a
+                href="https://github.com/vilmosmisota"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaGithubSquare />
+              </a>
             </li>
             <li>
-              <FaLinkedin />
+              <a
+                href="https://www.linkedin.com/in/vilmos-misota-586204210/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin />
+              </a>
             </li>
             <li>
-              <FaEnvelopeSquare />
+              <Link to="/contact" onClick={setToggleFalse}>
+                <FaEnvelopeSquare />
+              </Link>
             </li>
           </ul>
         </div>

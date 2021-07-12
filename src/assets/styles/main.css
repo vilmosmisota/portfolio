@@ -8,24 +8,25 @@
   --dark-red: #1f1312;
   --light: #f0ebe0;
   --green: #2e4b4d;
+  --pink: #cf8d88;
 
   --linkHoverTransition: 0.1s ease-in-out;
   --btnHoverTransition: 0.2s ease-in-out;
 
   --loading-h1-loading-time: 250ms;
-  --loading-h1-wait-time: 500ms;
+  --loading-h1-wait-time: 150ms;
 
   --loading-wrapper-loading-time: 500ms;
-  --loading-wrapper-wait-time: 2500ms;
+  --loading-wrapper-wait-time: 1500ms;
 
   --base-1-loading-time: 500ms;
-  --base-1-waiting-time: 2500ms;
+  --base-1-waiting-time: 1500ms;
 
   --base-2-loading-time: 500ms;
-  --base-2-wait-time: 3000ms;
+  --base-2-wait-time: 2000ms;
 
   --base-3-loading-time: 500ms;
-  --base-3-wait-time: 3500ms;
+  --base-3-wait-time: 2500ms;
 }
 
 *,
@@ -144,10 +145,16 @@ a {
   text-transform: uppercase;
   width: 100%;
   max-width: 450px;
-  border: 1px solid black;
   border-radius: 10px;
   margin: 0 auto 6rem auto;
   padding: 0.5rem 0;
+  font-weight: 700;
+  color: var(--light);
+  -webkit-text-stroke: 1px black;
+  transform: translateY(20%);
+  opacity: 0;
+  animation: base-intro 500ms ease-in 0s;
+  animation-fill-mode: forwards;
 }
 
 @media screen and (min-width: 930px) {
@@ -219,6 +226,14 @@ a {
 
   .header-img-wrapper {
     margin: 0;
+  }
+
+  .main-header {
+    font-size: 4rem;
+  }
+
+  .header-wrapper {
+    margin-bottom: 12rem;
   }
 }
 
