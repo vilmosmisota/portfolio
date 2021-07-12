@@ -11,8 +11,6 @@ function LoadingScreen() {
     return () => clearTimeout(timer)
   })
 
-  console.log(showLoadingScreen)
-
   const Loading = () => {
     if (showLoadingScreen === false) {
       return null

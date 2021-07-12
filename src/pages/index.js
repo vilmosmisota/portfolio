@@ -18,7 +18,13 @@ export default function Home() {
           <aside className="largescreen-icons-wrapper">
             <ul className="largescreen-icons">
               <li>
-                <FaGithubSquare />
+                <a
+                  href="https://github.com/vilmosmisota"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaGithubSquare />
+                </a>
               </li>
               <li>
                 <FaLinkedin />
@@ -44,7 +50,9 @@ export default function Home() {
           </figure>
         </header>
         <main className="main-content">
-          <h1 className="main-header">Projects</h1>
+          <h1 className="main-header" id="projects">
+            Projects
+          </h1>
           <Projects />
         </main>
       </Layout>

@@ -131,11 +131,6 @@ a {
   cursor: pointer;
 }
 
-.black-btn:hover {
-  color: black;
-  background-color: var(--light);
-}
-
 /* main */
 
 .main-content {
@@ -215,6 +210,11 @@ a {
     font-size: 1.5rem;
     padding: 0.5rem 2.4rem;
     cursor: pointer;
+  }
+
+  .black-btn:hover {
+    color: black;
+    background-color: var(--light);
   }
 
   .header-img-wrapper {

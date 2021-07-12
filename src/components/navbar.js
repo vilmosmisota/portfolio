@@ -49,7 +49,9 @@ export default function Navbar() {
       </section>
       <section className={toggleNavlists()}>
         <ul className="nav-items">
-          <li>Projects</li>
+          <Link to="/projects">
+            <li>Projects</li>
+          </Link>
           <Link to="/about">
             <li>About</li>
           </Link>
