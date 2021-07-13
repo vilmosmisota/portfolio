@@ -58,12 +58,18 @@ export default function Navbar() {
       </section>
       <section className={toggleNavlists()}>
         <ul className="nav-items">
-          <Link to="/projects" activeStyle={active} onClick={setToggleFalse}>
-            <li>Projects</li>
-          </Link>
-          <Link to="/about" activeStyle={active} onClick={setToggleFalse}>
-            <li>About</li>
-          </Link>
+          <li>
+            <Link to="/projects/" activeStyle={active} onClick={setToggleFalse}>
+              Projects
+            </Link>
+          </li>
+
+          <li>
+            <Link to="/about/" activeStyle={active} onClick={setToggleFalse}>
+              About
+            </Link>
+          </li>
+
           <li>CV</li>
         </ul>
         <div className="smallscreen-icons-wrapper">
