@@ -70,7 +70,11 @@ export default function Navbar() {
             </Link>
           </li>
 
-          <li>CV</li>
+          <li>
+            <Link to="/cv/" activeStyle={active} onClick={setToggleFalse}>
+              CV
+            </Link>
+          </li>
         </ul>
         <div className="smallscreen-icons-wrapper">
           <ul className="smallscreen-icons">

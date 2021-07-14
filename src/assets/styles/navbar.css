@@ -32,7 +32,7 @@ nav {
   transform: translateY(100vh);
   transform: scaleY(0);
   transform-origin: bottom;
-  transition: all 0.3s ease-in;
+  transition: all 0.2s ease-in;
   opacity: 0;
   pointer-events: none;
 }
@@ -43,7 +43,7 @@ nav {
   height: 100vh;
   transform: translateY(0);
   transform: scaleY(1);
-  transition: all 0.3s ease-in;
+  transition: all 0.2s ease-in;
   pointer-events: initial;
 }
 
