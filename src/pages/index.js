@@ -10,6 +10,7 @@ import Introduction from "../components/Introduction"
 import LoadingScreen from "../components/LoadingScreen"
 import { Link } from "gatsby"
 import Seo from "../components/Seo"
+import OnGoingProjects from "../components/OnGoingProjects"
 
 export default function Home() {
   return (
@@ -63,6 +64,9 @@ export default function Home() {
         <main className="main-content">
           <h1 className="main-header about-name">Projects</h1>
           <Projects />
+          <h1 className="main-header about-name">On-Going Projects</h1>
+
+          <OnGoingProjects />
         </main>
       </Layout>
     </>

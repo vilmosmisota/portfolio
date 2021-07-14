@@ -4,16 +4,16 @@ import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { GatsbyImage } from "gatsby-plugin-image"
 import "../assets/styles/projects.css"
 
-const query = graphql`
+const myQuery = graphql`
   {
-    allContentfulProjects {
+    allContentfulOnGoingProjects {
       nodes {
+        github
+        name
+        sumupHeading
         mainFeatures {
           raw
         }
-        title
-        id
-        sumupHeading
         images {
           gatsbyImageData(
             formats: AUTO
@@ -22,41 +22,80 @@ const query = graphql`
             layout: CONSTRAINED
           )
         }
-        overview {
-          overview
-        }
-        github
+        id
         about {
           about
         }
-        website
+        overview {
+          overview
+        }
       }
     }
   }
 `
 
-const Projects = () => {
-  const data = useStaticQuery(query)
-  const projects = data.allContentfulProjects.nodes
+const OnGoingProjects = () => {
+  const data = useStaticQuery(myQuery)
+  const OnGoingProjects = data.allContentfulOnGoingProjects.nodes
 
-  // Individual Read more/less button in the map function
-  const initialStateForIds = projects.map(el => {
+  const initialStateForIds = OnGoingProjects.map(el => {
     const idFalse = { [el.id]: false }
     return idFalse
   })
 
-  const [readMore, SetReadMore] = useState(initialStateForIds)
+  const [more, setMore] = useState(initialStateForIds)
+
+  console.log(OnGoingProjects)
 
   return (
     <>
-      {projects.map(el => {
+      {OnGoingProjects.map(el => {
         const onClick = () => {
-          SetReadMore(prev => ({ ...prev, [el.id]: !prev[el.id] }))
+          setMore(prev => ({ ...prev, [el.id]: !prev[el.id] }))
+        }
+
+        const ShowCodeBtn = () => {
+          if (el.github === null) {
+            return (
+              <>
+                <button className="short-btn">No Code</button>
+              </>
+            )
+          } else {
+            return (
+              <>
+                <a
+                  href={el.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="short-btn"
+                >
+                  Code
+                </a>
+              </>
+            )
+          }
+        }
+
+        const ShowSecondImg = () => {
+          if (el.images[1] === undefined) {
+            return null
+          } else {
+            return (
+              <>
+                <GatsbyImage
+                  image={el.images[1].gatsbyImageData}
+                  alt={el.title}
+                  className="project-img"
+                />
+              </>
+            )
+          }
         }
 
         return (
           <article className="project-wrapper" key={el.id}>
-            <h2 className="project-title">{el.title}</h2>
+            <h2 className="project-title">{el.name}</h2>
             <p className="subheading">{el.sumupHeading}</p>
             <section className="overview-wrapper">
               <h4 className="overview-text">{el.overview.overview}</h4>
@@ -67,23 +106,11 @@ const Projects = () => {
                 alt={el.title}
                 className="project-img"
               />
-              <GatsbyImage
-                image={el.images[2].gatsbyImageData}
-                alt={el.title}
-                className="project-img"
-              />
+              <ShowSecondImg />
             </figure>
-            {/* <section className="img-btn-wrapper">
-              <button className="img-btn">
-                <HiOutlineArrowNarrowLeft />
-              </button>
-              <button className="img-btn">
-                <HiOutlineArrowNarrowRight />
-              </button>
-            </section> */}
             <article
               className={`${
-                readMore[el.id]
+                more[el.id]
                   ? "read-more-wrapper read-more-active"
                   : "read-more-wrapper"
               }`}
@@ -101,24 +128,10 @@ const Projects = () => {
             </article>
             <section className="project-icon-wrapper">
               <button onClick={onClick} className="long-btn">
-                {`${readMore[el.id] ? "Read less" : "Read more"}`}
+                {`${more[el.id] ? "Read less" : "Read more"}`}
               </button>
-              <a
-                href={el.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="short-btn"
-              >
-                Live
-              </a>
-              <a
-                href={el.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="short-btn"
-              >
-                Code
-              </a>
+              <button className="short-btn">No Live</button>
+              <ShowCodeBtn />
             </section>
           </article>
         )
@@ -127,4 +140,4 @@ const Projects = () => {
   )
 }
 
-export default Projects
+export default OnGoingProjects
